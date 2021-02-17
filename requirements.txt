@@ -1,0 +1,16 @@
+dash
+dash_html_components
+dash_core_components
+dash_bootstrap_components
+dash.dependencies
+altair
+os
+base64
+numpy
+pandas
+json
+torch
+torchvision
+PIL
+io
+wikipediaapi
