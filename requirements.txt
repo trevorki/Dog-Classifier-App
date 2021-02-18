@@ -10,6 +10,6 @@ numpy
 # json
 torch
 torchvision
-PIL
+Pillow
 # io
 wikipediaapi
