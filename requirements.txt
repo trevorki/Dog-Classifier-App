@@ -4,8 +4,7 @@ dash==1.18.1
 dash_html_components
 dash_core_components
 dash_bootstrap_components
-altair==4.1.0
-os
+altair
 base64
 numpy
 json
