@@ -16,9 +16,9 @@ from io import BytesIO
 import wikipediaapi
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], title="DogStory")
+server = app.server
 
 ############# Global variables ############
-
 # get a list of the files in the img directory
 image_directory = 'img/breed_samples'
 wiki_wiki = wikipediaapi.Wikipedia('en')
