@@ -5,7 +5,7 @@ dash_html_components
 dash_core_components
 dash_bootstrap_components
 altair
-base64
+# base64
 numpy
 json
 torch
