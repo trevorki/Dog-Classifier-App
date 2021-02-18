@@ -5,7 +5,7 @@ dash_html_components
 dash_core_components
 dash_bootstrap_components
 plotly==4.14.3
-altair
+altair==4.1.0
 os
 base64
 numpy
