@@ -23,7 +23,7 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], title="DogStory")
 image_directory = 'img/breed_samples'
 wiki_wiki = wikipediaapi.Wikipedia('en')
 
-imagenet_labels = json.load(open("imagenet_class_index.json"))
+imagenet_labels = json.load(open("src/imagenet_class_index.json"))
 imagenet_labels = [imagenet_labels[str(k)][1] for k in range(len(imagenet_labels))]
 imagenet_labels= [imagenet_labels[i].capitalize() for i in range(len(imagenet_labels))]
 
@@ -229,4 +229,4 @@ def toggle_collapse(n, is_open):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
