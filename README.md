@@ -3,4 +3,4 @@ Users upload a picture of a do and app predicts the breed using the the Pytorch 
 
 The purpose of this app is to pactice deploying a Dash app on Heroku.
 
-![](https://github.com/trevorki/Dog-Classifier-App/blob/main/img/demo_gif.gif | width=500)
+![](img/demo_gif.gif | width=500)
