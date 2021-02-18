@@ -4,7 +4,6 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 # from dash.dependencies import Input, Output, State
 import altair as alt
-
 import base64
 import numpy as np
 import pandas as pd
@@ -183,10 +182,8 @@ def update_predictions(contents):
 
         width = ''
         height = '120px'
-        
         breed_list = predictions['breed'].tolist()
         pred_list = predictions['k_label'].tolist()         # used to show photos of the top 3 predictions
-        
         ind = []                                            # filter out predictions that are not dogs
         for i in range(len(pred_list)):
             if pred_list[i] not in imagenet_labels[151:269]: # imagenet_labels[151:269] are the dogs
@@ -194,7 +191,6 @@ def update_predictions(contents):
         for index in sorted(ind, reverse=True):
             del pred_list[index]
             del breed_list[index]
-    
         pred_1, text_1, link_1= prepare_pred_image(breed_list, pred_list, 0, width, height)
         pred_2, text_2, link_2 = prepare_pred_image(breed_list, pred_list, 1, width, height)
         pred_3, text_3, link_3 = prepare_pred_image(breed_list, pred_list, 2, width, height)
@@ -220,7 +216,6 @@ def toggle_collapse(n, is_open):
     if n:
         return not is_open
     return is_open
-
 
 if __name__ == '__main__':
     app.run_server(debug=False)

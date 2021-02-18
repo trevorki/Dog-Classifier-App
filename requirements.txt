@@ -5,11 +5,7 @@ dash_html_components==1.1.1
 dash_core_components==1.14.1
 dash_bootstrap_components
 altair
-# base64
 numpy
-# json
 torch
 torchvision
 Pillow
-# io
-wikipediaapi
