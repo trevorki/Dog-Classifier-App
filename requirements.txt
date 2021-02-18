@@ -1,3 +1,5 @@
+pandas
+gunicorn
 dash==1.18.1
 dash_html_components
 dash_core_components
@@ -7,7 +9,6 @@ altair
 os
 base64
 numpy
-pandas
 json
 torch
 torchvision
