@@ -4,7 +4,7 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 # from dash.dependencies import Input, Output, State
 import altair as alt
-# import os
+
 import base64
 import numpy as np
 import pandas as pd
@@ -130,13 +130,10 @@ def prepare_pred_image(breed_list, pred_list, index, width, height):
     if index >= len(breed_list):
         photo_source = image_directory + "/" + "Not_a_dog.jpg"
         text = "Not a dog"
-        # page = wiki_wiki.page("Rick Astley")
-            
         link = "https://en.wikipedia.org/wiki/" 
     else:
         photo_source = image_directory + "/" + pred_list[index] + ".jpg"
         text = f"#{index+1}: {breed_list[index]}"
-        # page = wiki_wiki.page(breed_list[index])
         link = "https://en.wikipedia.org/wiki/" + breed_list[index]
     photo_base64 = "data:image/jpeg;base64,"+base64.b64encode(open(photo_source, 'rb').read()).decode('ascii')
     pred = prepare_photo(photo_base64, width, height)
