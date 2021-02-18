@@ -2,7 +2,7 @@ import dash
 import dash_html_components as html
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output, State
+# from dash.dependencies import Input, Output, State
 import altair as alt
 import os
 import base64
@@ -147,8 +147,8 @@ def prepare_pred_image(breed_list, pred_list, index, width, height):
     return pred, text, link
 
 @app.callback(
-    Output('output-uploaded-image', 'children'),
-    Input('upload-image', 'contents'))
+    dash.dependencies.Output('output-uploaded-image', 'children'),
+    dash.dependencies.Input('upload-image', 'contents'))
 def update_photo(contents):
     if contents is not None:
         children = prepare_photo(contents,'90%', '')
@@ -169,14 +169,14 @@ def update_photo(contents):
     
 
 @app.callback(
-    Output('prediction-plot', 'srcDoc'),
-    Output('photo-1', 'children'), 
-    Output('photo-2', 'children'),
-    Output('photo-3', 'children'),
-    Output('link-1', 'children'), 
-    Output('link-2', 'children'), 
-    Output('link-3', 'children'), 
-    Input('upload-image', 'contents'))
+    dash.dependencies.Output('prediction-plot', 'srcDoc'),
+    dash.dependencies.Output('photo-1', 'children'), 
+    dash.dependencies.Output('photo-2', 'children'),
+    dash.dependencies.Output('photo-3', 'children'),
+    dash.dependencies.Output('link-1', 'children'), 
+    dash.dependencies.Output('link-2', 'children'), 
+    dash.dependencies.Output('link-3', 'children'), 
+    dash.dependencies.Input('upload-image', 'contents'))
 def update_predictions(contents):
     if contents is not None:
         if len(contents.split(","))==2:
@@ -218,9 +218,9 @@ def update_predictions(contents):
 
 
 @app.callback(
-    Output("collapse", "is_open"),
-    [Input("collapse-button", "n_clicks")],
-    [State("collapse", "is_open")],
+    dash.dependencies.Output("collapse", "is_open"),
+    [dash.dependencies.Input("collapse-button", "n_clicks")],
+    [dash.dependencies.State("collapse", "is_open")],
 )
 def toggle_collapse(n, is_open):
     if n:

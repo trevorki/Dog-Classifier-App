@@ -2,7 +2,6 @@ dash==1.18.1
 dash_html_components
 dash_core_components
 dash_bootstrap_components
-dash.dependencies
 altair
 os
 base64
