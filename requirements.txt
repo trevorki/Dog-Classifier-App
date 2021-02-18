@@ -7,9 +7,9 @@ dash_bootstrap_components
 altair
 # base64
 numpy
-json
+# json
 torch
 torchvision
 PIL
-io
+# io
 wikipediaapi
