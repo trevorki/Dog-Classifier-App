@@ -13,24 +13,21 @@ import torch
 from torchvision import transforms, models
 from PIL import Image
 from io import BytesIO
-import wikipediaapi
+
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], title="DogStory")
 server = app.server
 
 ############# Global variables ############
-# get a list of the files in the img directory
 image_directory = 'img/breed_samples'
-wiki_wiki = wikipediaapi.Wikipedia('en')
-
 imagenet_labels = json.load(open("src/imagenet_class_index.json"))
 imagenet_labels = [imagenet_labels[str(k)][1] for k in range(len(imagenet_labels))]
 imagenet_labels= [imagenet_labels[i].capitalize() for i in range(len(imagenet_labels))]
 
 ############# Neural network setup #############
 densenet = models.densenet121(pretrained=True)
-densenet.eval();  #go into evaluation mode (deactivate dropout, batchnorm, etc)
-for param in densenet.parameters():  # Freeze parameters so we don't update them
+densenet.eval();                        # go into evaluation mode (deactivate dropout, batchnorm, etc)
+for param in densenet.parameters():     # Freeze parameters so we don't update them
     param.requires_grad = False
 
 ############## Dashboard components ##############
@@ -133,17 +130,17 @@ def prepare_pred_image(breed_list, pred_list, index, width, height):
     if index >= len(breed_list):
         photo_source = image_directory + "/" + "Not_a_dog.jpg"
         text = "Not a dog"
-        page = wiki_wiki.page("Rick Astley")    
+        # page = wiki_wiki.page("Rick Astley")
+            
+        link = "https://en.wikipedia.org/wiki/" 
     else:
         photo_source = image_directory + "/" + pred_list[index] + ".jpg"
         text = f"#{index+1}: {breed_list[index]}"
-        page = wiki_wiki.page(breed_list[index])
-        photo_base64 = "data:image/jpeg;base64,"+base64.b64encode(open(photo_source, 'rb').read()).decode('ascii')
+        # page = wiki_wiki.page(breed_list[index])
+        link = "https://en.wikipedia.org/wiki/" + breed_list[index]
+    photo_base64 = "data:image/jpeg;base64,"+base64.b64encode(open(photo_source, 'rb').read()).decode('ascii')
     pred = prepare_photo(photo_base64, width, height)
-    if page.exists():
-        link = dcc.Link(text, href = page.fullurl, target="_blank")
-    else:
-        link = html.P(text)
+    link = dcc.Link(text, href = link, target="_blank")
     return pred, text, link
 
 @app.callback(
