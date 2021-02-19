@@ -7,3 +7,4 @@ Users upload a picture of a do and app predicts the breed using the the Pytorch 
 The purpose of this app is to pactice deploying a Dash app on Heroku.
 
 ![](img/screenshot.png)
+![](img/demo_gif.gif)
