@@ -145,21 +145,7 @@ def prepare_pred_image(breed_list, pred_list, index, width, height):
 def update_photo(contents):
     if contents is not None:
         children = prepare_photo(contents,'90%', '')
-        return children
-
-# @app.callback(
-#     Output("upload-image", "contents"), 
-#     # Input('upload-image', 'contents')
-#     Input("random-button", "n_clicks"))
-# def on_button_click(n):
-#     random_photo = random.choice(os.listdir(image_directory))
-#     print(random_photo)
-#     if n is None:
-#         return "Not clicked."
-#     else:
-#         return f"Clicked {n} times."
-#     return
-    
+        return children   
 
 @app.callback(
     dash.dependencies.Output('prediction-plot', 'srcDoc'),
